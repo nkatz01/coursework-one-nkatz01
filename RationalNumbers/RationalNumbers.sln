@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RationalNumbers", "RationalNumbers\RationalNumbers.csproj", "{3F05DE5F-FB75-4CCC-B6CE-EC5AD529628F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RationalNumbers.Test", "RationalNumbers.Test\RationalNumbers.Test.csproj", "{6953D128-50FD-48C4-AB0E-16B861758F8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F05DE5F-FB75-4CCC-B6CE-EC5AD529628F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F05DE5F-FB75-4CCC-B6CE-EC5AD529628F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F05DE5F-FB75-4CCC-B6CE-EC5AD529628F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F05DE5F-FB75-4CCC-B6CE-EC5AD529628F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6953D128-50FD-48C4-AB0E-16B861758F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6953D128-50FD-48C4-AB0E-16B861758F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6953D128-50FD-48C4-AB0E-16B861758F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6953D128-50FD-48C4-AB0E-16B861758F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
