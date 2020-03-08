@@ -9,14 +9,14 @@ namespace RationalNumbers
 
         public RationalNumber(int numerator)
         {
-            throw new NotImplementedException("You need to implement this operator.");
+           this.Numerator = numerator;
+           this.Denominator = 1; 
         }
 
         public RationalNumber(int numerator, int denominator)
         {
             this.Numerator = numerator;
             this.Denominator = denominator;
-            //throw new NotImplementedException("You need to implement this operator.");
         }
 
         public static IRationalNumber operator +(RationalNumber r1, RationalNumber r2) => r1.Add(r2);
@@ -32,7 +32,7 @@ namespace RationalNumbers
             throw new NotImplementedException("You need to implement this function.");
         }
 
-        private IRationalNumber Reduce()
+        public IRationalNumber Reduce()//used to be private
         {
             throw new NotImplementedException("You need to implement this function.");
         }
@@ -47,9 +47,11 @@ namespace RationalNumbers
             throw new NotImplementedException("You need to implement this function.");
         }
 
-        public IRationalNumber Add(IRationalNumber number)
+        public IRationalNumber Add(this IRationalNumber number1, IRationalNumber number2)
         {
-            throw new NotImplementedException();
+            RationalNumber r1 = (RationalNumber) number1 ;
+            RationalNumber r2 = (RationalNumber) number2 ;
+          return  (r1.Numerator * r2.Denominator + r2.Numerator * r1.Denominator) / (r1.Denominator * r2.Denominator);
         }
 
         public IRationalNumber Subtract(IRationalNumber number)
