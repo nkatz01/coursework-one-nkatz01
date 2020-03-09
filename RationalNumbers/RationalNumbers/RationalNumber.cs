@@ -63,14 +63,14 @@ namespace RationalNumbers
         {
          // var bla = Math.Pow(this.Numerator, power);
             // RationalNumber r2 = (RationalNumber)number;
-              return new RationalNumber(Math.Pow(this.Numerator, power), this.Denominator * n);
+              return new RationalNumber((int)Math.Pow(this.Numerator, power), (int)Math.Pow(this.Denominator, power));
             //(a ^ n) / (b ^ n)
             //  throw new NotImplementedException("You need to implement this function.");
         }
 
         public double ExpReal(int baseNumber)
         {
-            throw new NotImplementedException("You need to implement this function.");
+         return  baseNumber.ExpReal(this);
         }
 
         public IRationalNumber Add(IRationalNumber number)
@@ -95,7 +95,7 @@ namespace RationalNumbers
         {
             RationalNumber r2 = (RationalNumber)number;
             try { 
-            return new RationalNumber((this.Numerator * r2.Denominator), (this.Denominator * r2.Numerator)); //https://www.helpwithfractions.com/dividing-fractions
+            return new RationalNumber((this.Numerator * r2.Denominator), (this.Denominator * r2.Numerator)).Reduce(); //https://www.helpwithfractions.com/dividing-fractions
              }
 
             catch (DivideByZeroException ex)
@@ -127,8 +127,9 @@ namespace RationalNumbers
     {
         // exponentiate real number to the rational number power
         public static double ExpReal(this int intNumber, RationalNumber r)
-        {
-            return 0; // replace with correct call
+        {//Math.Pow(x, 1.0 / n);
+            return Math.Pow(Math.Pow(intNumber, r.Numerator), 1.0/r.Denominator); // replace with correct call
+          //  Exponentiation of a real number x to a rational number r = a / b is x ^ (a / b) = root(x ^ a, b), where root(p, q) is the qth root of p.
         }
     }
 }
