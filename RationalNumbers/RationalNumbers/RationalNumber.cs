@@ -1,5 +1,5 @@
 ﻿using System;
-
+ 
 
 namespace RationalNumbers
 {
@@ -61,7 +61,11 @@ namespace RationalNumbers
         }
         public IRationalNumber ExpRational(int power)
         {
-            throw new NotImplementedException("You need to implement this function.");
+         // var bla = Math.Pow(this.Numerator, power);
+            // RationalNumber r2 = (RationalNumber)number;
+              return new RationalNumber(Math.Pow(this.Numerator, power), this.Denominator * n);
+            //(a ^ n) / (b ^ n)
+            //  throw new NotImplementedException("You need to implement this function.");
         }
 
         public double ExpReal(int baseNumber)
@@ -90,7 +94,15 @@ namespace RationalNumbers
         public IRationalNumber Divide(IRationalNumber number)
         {
             RationalNumber r2 = (RationalNumber)number;
-            return new RationalNumber((this.Numerator*r2.Denominator), //https://www.helpwithfractions.com/dividing-fractions
+            try { 
+            return new RationalNumber((this.Numerator * r2.Denominator), (this.Denominator * r2.Numerator)); //https://www.helpwithfractions.com/dividing-fractions
+             }
+
+            catch (DivideByZeroException ex)
+            {
+               throw new DivideByZeroException("Error trying to multiply two fractions: {0}", ex);
+            }
+        
         }
 
         public override string ToString()
