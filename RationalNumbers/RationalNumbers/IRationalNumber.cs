@@ -11,5 +11,6 @@ namespace RationalNumbers
         IRationalNumber ExpRational(int power);
         double ExpReal(int baseNumber);
         // anything else you need to add?
+       // int GCD(int a, int b); private method
     }
 }

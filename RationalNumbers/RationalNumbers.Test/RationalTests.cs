@@ -6,6 +6,7 @@ namespace RationalNumbers.Test
     [TestClass]
     public class RationalTests
     {
+        [Ignore("Skip")]
         [TestMethod]
         public void Add_two_positive_rational_numbers()
         {
@@ -229,21 +230,26 @@ namespace RationalNumbers.Test
             Assert.AreEqual(1, 2.ExpReal(new RationalNumber(0, 1)), 0.0000001);
         }
 
-        [Ignore("Skip")]
+       // [Ignore("Skip")]
         [TestMethod]
         public void Reduce_a_positive_rational_number_to_lowest_terms()
         {
             Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(2, 4).Reduce());
         }
+        //[TestMethod]
+        //public void testGcd()
+        //{
+        //     new RationalNumber(98,56).Reduce();
+        //}
 
-        [Ignore("Skip")]
+       // [Ignore("Skip")]
         [TestMethod]
         public void Reduce_a_negative_rational_number_to_lowest_terms()
         {
             Assert.AreEqual(new RationalNumber(-2, 3), new RationalNumber(-4, 6).Reduce());
         }
 
-        [Ignore("Skip")]
+     //   [Ignore("Skip")]
         [TestMethod]
         public void Reduce_a_rational_number_with_a_negative_denominator_to_lowest_terms()
         {

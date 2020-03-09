@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace RationalNumbers
 {
     public struct RationalNumber : IRationalNumber
@@ -15,8 +16,13 @@ namespace RationalNumbers
 
         public RationalNumber(int numerator, int denominator)
         {
-            this.Numerator = numerator;
-            this.Denominator = denominator;
+            if (denominator == 0)
+                throw new DivideByZeroException("Cannot devide by zero");
+          if (denominator<0)
+            this.Numerator = (0-numerator);
+          else
+                this.Numerator =  numerator ;
+            this.Denominator = Math.Abs(denominator);
         }
 
         public static IRationalNumber operator +(RationalNumber r1, RationalNumber r2) => r1.Add(r2);
@@ -34,9 +40,18 @@ namespace RationalNumbers
 
         public IRationalNumber Reduce()//used to be private
         {
-            throw new NotImplementedException("You need to implement this function.");
-        }
 
+            int divisor = GCD(Numerator, Denominator);
+            Console.WriteLine(divisor);
+            return new  RationalNumber(Numerator / divisor, Denominator/divisor);
+        }
+        private int GCD(int a, int b)
+        {
+            if (b == 0)
+                return a;
+            return GCD(b, a % b);
+
+        }
         public IRationalNumber ExpRational(int power)
         {
             throw new NotImplementedException("You need to implement this function.");
@@ -47,11 +62,12 @@ namespace RationalNumbers
             throw new NotImplementedException("You need to implement this function.");
         }
 
-        public IRationalNumber Add(this IRationalNumber number1, IRationalNumber number2)
+        public IRationalNumber Add(IRationalNumber number)
         {
-            RationalNumber r1 = (RationalNumber) number1 ;
-            RationalNumber r2 = (RationalNumber) number2 ;
-          return  (r1.Numerator * r2.Denominator + r2.Numerator * r1.Denominator) / (r1.Denominator * r2.Denominator);
+            RationalNumber r2 = (RationalNumber) number ;
+            throw new NotImplementedException("You need to implement this function.");
+            //  var doub =  (double)((this.Numerator * r2.Denominator + r2.Numerator * this.Denominator) / (this.Denominator * r2.Denominator));
+            //  return (IRationalNumber)doub;
         }
 
         public IRationalNumber Subtract(IRationalNumber number)
