@@ -6,98 +6,98 @@ namespace RationalNumbers.Test
     [TestClass]
     public class RationalTests
     {
-        [Ignore("Skip")]
+       // [Ignore("Skip")]
         [TestMethod]
         public void Add_two_positive_rational_numbers()
         {
             Assert.AreEqual(new RationalNumber(7, 6), new RationalNumber(1, 2) + new RationalNumber(2, 3));
         }
 
-        [Ignore("Skip")]
+       // [Ignore("Skip")]
         [TestMethod]
         public void Add_a_positive_rational_number_and_a_negative_rational_number()
         {
             Assert.AreEqual(new RationalNumber(-1, 6), new RationalNumber(1, 2) + new RationalNumber(-2, 3));
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Add_two_negative_rational_numbers()
         {
             Assert.AreEqual(new RationalNumber(-7, 6), new RationalNumber(-1, 2) + new RationalNumber(-2, 3));
         }
 
-        [Ignore("Skip")]
+    //    [Ignore("Skip")]
         [TestMethod]
         public void Add_a_rational_number_to_its_additive_inverse()
         {
             Assert.AreEqual(new RationalNumber(0, 1), new RationalNumber(1, 2) + new RationalNumber(-1, 2));
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Subtract_two_positive_rational_numbers()
         {
             Assert.AreEqual(new RationalNumber(-1, 6), new RationalNumber(1, 2) - new RationalNumber(2, 3));
         }
 
-        [Ignore("Skip")]
+     //   [Ignore("Skip")]
         [TestMethod]
         public void Subtract_a_positive_rational_number_and_a_negative_rational_number()
         {
             Assert.AreEqual(new RationalNumber(7, 6), new RationalNumber(1, 2) - new RationalNumber(-2, 3));
         }
 
-        [Ignore("Skip")]
+     //   [Ignore("Skip")]
         [TestMethod]
         public void Subtract_two_negative_rational_numbers()
         {
             Assert.AreEqual(new RationalNumber(1, 6), new RationalNumber(-1, 2) - new RationalNumber(-2, 3));
         }
 
-        [Ignore("Skip")]
+       // [Ignore("Skip")]
         [TestMethod]
         public void Subtract_a_rational_number_from_itself()
         {
             Assert.AreEqual(new RationalNumber(0, 1), new RationalNumber(1, 2) - new RationalNumber(1, 2));
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Multiply_two_positive_rational_numbers()
         {
             Assert.AreEqual(new RationalNumber(1, 3), new RationalNumber(1, 2) * new RationalNumber(2, 3));
         }
 
-        [Ignore("Skip")]
+    //    [Ignore("Skip")]
         [TestMethod]
         public void Multiply_a_negative_rational_number_by_a_positive_rational_number()
         {
             Assert.AreEqual(new RationalNumber(-1, 3), new RationalNumber(-1, 2) * new RationalNumber(2, 3));
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Multiply_two_negative_rational_numbers()
         {
             Assert.AreEqual(new RationalNumber(1, 3), new RationalNumber(-1, 2) * new RationalNumber(-2, 3));
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Multiply_a_rational_number_by_its_reciprocal()
         {
             Assert.AreEqual(new RationalNumber(1, 1), new RationalNumber(1, 2) * new RationalNumber(2, 1));
         }
 
-        [Ignore("Skip")]
+     //   [Ignore("Skip")]
         [TestMethod]
         public void Multiply_a_rational_number_by_1()
         {
             Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(1, 2) * new RationalNumber(1, 1));
         }
 
-        [Ignore("Skip")]
+     //   [Ignore("Skip")]
         [TestMethod]
         public void Multiply_a_rational_number_by_0()
         {
@@ -132,35 +132,35 @@ namespace RationalNumbers.Test
             Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(1, 2) / new RationalNumber(1, 1));
         }
 
-        [Ignore("Skip")]
+        //[Ignore("Skip")]
         [TestMethod]
         public void Absolute_value_of_a_positive_rational_number()
         {
             Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(1, 2).Abs());
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Absolute_value_of_a_positive_rational_number_with_negative_numerator_and_denominator()
         {
             Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(-1, -2).Abs());
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Absolute_value_of_a_negative_rational_number()
         {
             Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(-1, 2).Abs());
         }
 
-        [Ignore("Skip")]
+       // [Ignore("Skip")]
         [TestMethod]
         public void Absolute_value_of_a_negative_rational_number_with_negative_denominator()
         {
             Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(1, -2).Abs());
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Absolute_value_of_zero()
         {
@@ -256,21 +256,21 @@ namespace RationalNumbers.Test
             Assert.AreEqual(new RationalNumber(-1, 3), new RationalNumber(3, -9).Reduce());
         }
 
-        [Ignore("Skip")]
+    //    [Ignore("Skip")]
         [TestMethod]
         public void Reduce_zero_to_lowest_terms()
         {
             Assert.AreEqual(new RationalNumber(0, 1), new RationalNumber(0, 6).Reduce());
         }
 
-        [Ignore("Skip")]
+      //  [Ignore("Skip")]
         [TestMethod]
         public void Reduce_an_integer_to_lowest_terms()
         {
             Assert.AreEqual(new RationalNumber(-2, 1), new RationalNumber(-14, 7).Reduce());
         }
 
-        [Ignore("Skip")]
+    //    [Ignore("Skip")]
         [TestMethod]
         public void Reduce_one_to_lowest_terms()
         {

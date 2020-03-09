@@ -18,11 +18,18 @@ namespace RationalNumbers
         {
             if (denominator == 0)
                 throw new DivideByZeroException("Cannot devide by zero");
-          if (denominator<0)
-            this.Numerator = (0-numerator);
-          else
-                this.Numerator =  numerator ;
-            this.Denominator = Math.Abs(denominator);
+             if (numerator == 0) { 
+                this.Numerator = 0;
+                 this.Denominator = 1;//even if denom was negative, results would have been zero anyway
+            }
+            else { 
+                if (denominator<0)
+                   this.Numerator = (0-numerator);
+                else
+                 this.Numerator =  numerator ;
+                
+                 this.Denominator = Math.Abs(denominator);
+                }
         }
 
         public static IRationalNumber operator +(RationalNumber r1, RationalNumber r2) => r1.Add(r2);
@@ -35,7 +42,7 @@ namespace RationalNumbers
 
         public IRationalNumber Abs()
         {
-            throw new NotImplementedException("You need to implement this function.");
+            return new RationalNumber(Math.Abs(this.Numerator), Math.Abs(this.Denominator));
         }
 
         public IRationalNumber Reduce()//used to be private
@@ -65,24 +72,25 @@ namespace RationalNumbers
         public IRationalNumber Add(IRationalNumber number)
         {
             RationalNumber r2 = (RationalNumber) number ;
-            throw new NotImplementedException("You need to implement this function.");
-            //  var doub =  (double)((this.Numerator * r2.Denominator + r2.Numerator * this.Denominator) / (this.Denominator * r2.Denominator));
-            //  return (IRationalNumber)doub;
-        }
+            return   new RationalNumber((this.Numerator * r2.Denominator + r2.Numerator * this.Denominator) ,(this.Denominator * r2.Denominator)).Reduce();
+         }
 
         public IRationalNumber Subtract(IRationalNumber number)
         {
-            throw new NotImplementedException();
+            RationalNumber r2 = (RationalNumber)number;
+            return new RationalNumber((this.Numerator * r2.Denominator - r2.Numerator * this.Denominator), (this.Denominator * r2.Denominator)).Reduce();
         }
 
         public IRationalNumber Multiply(IRationalNumber number)
         {
-            throw new NotImplementedException();
+            RationalNumber r2 = (RationalNumber)number;
+            return new RationalNumber((this.Numerator*r2.Numerator), (this.Denominator*r2.Denominator)).Reduce();
         }
 
         public IRationalNumber Divide(IRationalNumber number)
         {
-            throw new NotImplementedException();
+            RationalNumber r2 = (RationalNumber)number;
+            return new RationalNumber((this.Numerator*r2.Denominator), //https://www.helpwithfractions.com/dividing-fractions
         }
 
         public override string ToString()
