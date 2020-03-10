@@ -271,47 +271,57 @@ namespace RationalNumbers.Test
         [TestMethod]
         public void Reduce_a_positive_rational_number_to_lowest_terms()
         {
-            Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(2, 4).Reduce());
+            Assert.AreEqual(new RationalNumber(1, 2), new RationalNumber(2, 4));
         }
-        //[TestMethod]
-        //public void testGcd()
-        //{
-        //     new RationalNumber(98,56).Reduce();
-        //}
+        
 
        // [Ignore("Skip")]
         [TestMethod]
         public void Reduce_a_negative_rational_number_to_lowest_terms()
         {
-            Assert.AreEqual(new RationalNumber(-2, 3), new RationalNumber(-4, 6).Reduce());
+            Assert.AreEqual(new RationalNumber(-2, 3), new RationalNumber(-4, 6));
         }
 
      //   [Ignore("Skip")]
         [TestMethod]
         public void Reduce_a_rational_number_with_a_negative_denominator_to_lowest_terms()
         {
-            Assert.AreEqual(new RationalNumber(-1, 3), new RationalNumber(3, -9).Reduce());
+            Assert.AreEqual(new RationalNumber(-1, 3), new RationalNumber(3, -9));
         }
 
-    //    [Ignore("Skip")]
+    // [Ignore("Skip")]
         [TestMethod]
         public void Reduce_zero_to_lowest_terms()
         {
-            Assert.AreEqual(new RationalNumber(0, 1), new RationalNumber(0, 6).Reduce());
+            Assert.AreEqual(new RationalNumber(0, 1), new RationalNumber(0, 6));
         }
 
       //  [Ignore("Skip")]
         [TestMethod]
         public void Reduce_an_integer_to_lowest_terms()
         {
-            Assert.AreEqual(new RationalNumber(-2, 1), new RationalNumber(-14, 7).Reduce());
+            Assert.AreEqual(new RationalNumber(-2, 1), new RationalNumber(-14, 7));
         }
 
     //    [Ignore("Skip")]
         [TestMethod]
         public void Reduce_one_to_lowest_terms()
         {
-            Assert.AreEqual(new RationalNumber(1, 1), new RationalNumber(13, 13).Reduce());
+            Assert.AreEqual(new RationalNumber(1, 1), new RationalNumber(13, 13));
+        }
+
+        //    [Ignore("Skip")]
+        [TestMethod]
+        public void Two_equal_RationalNumbers_get_same_hashcode()
+        {
+            Assert.AreEqual(new RationalNumber(3, 6).GetHashCode(), new RationalNumber(6, 12).GetHashCode());
+        }
+
+        //    [Ignore("Skip")]
+        [TestMethod]
+        public void Two_equal_RationalNumbers_pass_overriden_Equals()
+        {
+            Assert.IsTrue(new RationalNumber(3,6).Equals(new RationalNumber(6, 12)));
         }
     }
 }

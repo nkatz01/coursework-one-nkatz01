@@ -45,7 +45,7 @@ namespace RationalNumbers
             return new RationalNumber(Math.Abs(this.Numerator), Math.Abs(this.Denominator));
         }
 
-        public IRationalNumber Reduce()//used to be private
+        private IRationalNumber Reduce()//used to be private
         {
 
             int divisor = GCD(Numerator, Denominator);
@@ -61,11 +61,9 @@ namespace RationalNumbers
         }
         public IRationalNumber ExpRational(int power)
         {
-         // var bla = Math.Pow(this.Numerator, power);
-            // RationalNumber r2 = (RationalNumber)number;
-              return new RationalNumber((int)Math.Pow(this.Numerator, power), (int)Math.Pow(this.Denominator, power));
-            //(a ^ n) / (b ^ n)
-            //  throw new NotImplementedException("You need to implement this function.");
+          
+              return new RationalNumber((int)Math.Pow(this.Numerator, power), (int)Math.Pow(this.Denominator, power)).Reduce();
+            
         }
 
         public double ExpReal(int baseNumber)
@@ -110,14 +108,36 @@ namespace RationalNumbers
             return $"{this.Numerator}/{this.Denominator}";
         }
 
+       
+
+       
+
         public override bool Equals(object obj)
         {
-            return base.Equals(obj); // replace this with the correct expression or remove
+          
+            return Equals(obj as IRationalNumber);
+        }
+
+        public bool Equals(RationalNumber other)
+        {
+
+          if ((object)other != null) {
+                RationalNumber r1 = (RationalNumber)this.Reduce();
+                RationalNumber r2 = (RationalNumber)other.Reduce();
+             return   r1.Numerator == r2.Numerator && r1.Denominator == r2.Denominator;
+
+                     }
+            return false;
+                  
         }
 
         public override int GetHashCode()
         {
-            return base.GetHashCode(); // replace this with the correct expression or remove
+            RationalNumber r = (RationalNumber)this.Reduce();
+            var hashCode = 352022299;
+            hashCode = hashCode * -123123123 + r.Numerator.GetHashCode();
+            hashCode *= -123123123 + r.Denominator.GetHashCode();
+            return hashCode;
         }
 
         // plus any other methods you deem necessary to meet the specification
@@ -125,11 +145,10 @@ namespace RationalNumbers
 
     public static class IntNumberExtension
     {
-        // exponentiate real number to the rational number power
+        
         public static double ExpReal(this int intNumber, RationalNumber r)
-        {//Math.Pow(x, 1.0 / n);
-            return Math.Pow(Math.Pow(intNumber, r.Numerator), 1.0/r.Denominator); // replace with correct call
-          //  Exponentiation of a real number x to a rational number r = a / b is x ^ (a / b) = root(x ^ a, b), where root(p, q) is the qth root of p.
+        {
+            return Math.Pow(Math.Pow(intNumber, r.Numerator), 1.0/r.Denominator);
         }
     }
 }
